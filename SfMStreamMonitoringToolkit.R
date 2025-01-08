@@ -30,7 +30,7 @@ dsm_raster_path <- file.path("D:/CoveringGround/CSU_Beaver/GeocloudProducts/Lowe
 upstream_downstream_points_path <-("D:/CoveringGround/CSU_Beaver/shp/channel_extent/LowerElkhorn/LE_updatedreachpoints.shp") # Required
 centerline_path <- file.path("D:/CoveringGround/CSU_Beaver/shp/channel_extent/LowerElkhorn/LE_centerline01082025.shp") # Required
 channel_path <- file.path("D:/CoveringGround/CSU_Beaver/shp/channel_extent/LowerElkhorn/LE_channel01082025.shp") # Required
-output_folder_path <- file.path("D:/CoveringGround/CSU_Beaver/shp/channel_extent/LowerElkhorn/SfMMeasurements") # Required
+output_folder_path <- file.path("D:/CoveringGround/CSU_Beaver/shp/channel_extent") # Required
 imagery_date <- "06/17/20204"
 site_name <- "LowerElkhorn"
 ### End Fill in Data ###
@@ -73,6 +73,8 @@ centerline_length <- perim(centerline)
 stream_gradient <-elevation_dif / centerline_length
 stream_gradient
 
+
+
 #################################
 ###   Step 2: Channel Area    ###
 #################################
@@ -85,12 +87,23 @@ channel_poly
 channel_area <- expanse(channel_poly)
 channel_area
 
+
+#############################################################
+###   Step 3: Sinuosity Index & Straight line Distance    ###
+#############################################################
+
+# Find the straight line distance between upstream and downstream points
+straightline_distance <- distance(boundary_points[1],boundary_points[2]) 
+
+# Calculate the sinuosity index
+sinuosity_index <- centerline_length/straightline_distance
+
 ########################################
-###   Step 3: Write outputs to csv   ###
+###   Step 4: Write outputs to csv   ###
 ########################################
 
 # spreadsheet for logging model runs and corresponding parameters
-results_path <- file.path(output_folder_path, paste0(site_name,"_SfMmeasurments.csv"))
+results_path <- file.path(output_folder_path, paste0("SfMStreamToolkit_Measurments.csv"))
 
 
 # Check if the file already exists
@@ -101,10 +114,12 @@ if (!file.exists(results_path)) {
     Date = character(),
     Site = character(),
     ElevationDifference = numeric(),
+    StraightlineDistance = numeric(),
     ChannelLength = numeric(),
-    Gradient_percent = numeric(),
     ChannelArea = numeric(),
-    units = character()# Ensure the square meter symbol is handled correctly
+    GradientPercent = numeric(), 
+    SinuosityIndex = numeric()
+    #units = character()# Ensure the square meter symbol is handled correctly
   )
   
   # Write to CSV without row names and ensure the column names are exactly as intended
@@ -120,10 +135,12 @@ new_row <- data.frame(
   Date = imagery_date,  # Ensure proper column name and matching case
   Site = site_name,
   ElevationDifference = elevation_dif,
+  StraightlineDistance = straightline_distance,
   ChannelLength = centerline_length,
-  Gradient_percent = stream_gradient*100,
   ChannelArea = channel_area,
-  units = "m" 
+  GradientPercent = stream_gradient*100,
+  SinuosityIndex = sinuosity_index
+  #units = "m" 
 )
 
 # Append the new row to the existing CSV
@@ -132,4 +149,3 @@ write.table(new_row, results_path, append = TRUE, sep = ",", col.names = FALSE, 
 cat("New row added to file:", results_path, "\n")
 
 
-# Write Row to table
