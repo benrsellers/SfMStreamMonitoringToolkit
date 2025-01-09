@@ -20,7 +20,7 @@ Calculates the elevation difference between upstream and downstream points divid
 Measures the area of the stream channel using provided shapefiles.
 
 **Visual Example:**
-![Channel Area Measurement](path/to/channel_area_example.png)
+![Channel Area Measurement](https://github.com/benrsellers/SfMStreamMonitoringToolkit/blob/main/img/AreaCalculation.png)
 
 ---
 
