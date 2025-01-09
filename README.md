@@ -1,4 +1,4 @@
-# Stream Monitoring Toolkit
+# SfM Stream Monitoring Toolkit
 
 The **Stream Monitoring Toolkit** is a set of tools designed to calculate stream and channel metrics using drone imagery processed with structure from motion (SfM) software. The result of running this tool includes extracting elevation data, calculating channel area, computing stream gradients, and more, for use in environmental and hydrological analysis.
 
