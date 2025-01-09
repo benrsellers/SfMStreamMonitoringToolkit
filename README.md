@@ -12,7 +12,7 @@ The **Stream Monitoring Toolkit** is a set of tools designed to calculate stream
 Calculates the elevation difference between upstream and downstream points divided by the centerline length.
 
 **Visual Example:**
-![Stream Gradient Calculation]("img/GradientCalculation.png")
+![Stream Gradient Calculation](https://github.com/benrsellers/SfMStreamMonitoringToolkit/blob/main/img/GradientCalculation.png)
 
 ---
 
