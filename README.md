@@ -1,6 +1,14 @@
 # SfM Stream Monitoring Toolkit
 
-The **Stream Monitoring Toolkit** is a set of tools designed to calculate stream and channel metrics using drone imagery processed with structure from motion (SfM) software. The result of running this tool includes extracting elevation data, calculating channel area, computing stream gradients, and more, for use in environmental and hydrological analysis.
+The **Stream Monitoring Toolkit** is a set of tools designed to calculate stream and channel metrics using drone imagery processed with structure from motion (SfM) software. The result of running this r script includes extracting elevation data, calculating channel area, computing stream gradient, and calculating the streams sinuosity index, for use in environmental and hydrological analysis and monitoring.
+
+Many of these calculations are available in a user friendly QGIS plugin created by the Riverscapes Consortium - found here (https://qris.riverscapes.net). The QRIS tool offers a graphical user inerface to keep track of LTPBR monitoring data over time.
+
+The SfM Monitoring Toolkit aims to provide a no frills programmatic approach to calculating useful stream metrics from drone imagery, for use in stream restoration prioritization and monitoring over time. This tool can be easily automate the calculation of stream metrics for a beginner to intermediate R user - leaving the visualization and analysis of results up to you. 
+
+Please dont hesitate to reach out with questions regarding the use of this tool or ideas for updates!
+email: ben.sellers@cgmapping.com
+
 
 ## Features
 
@@ -15,7 +23,7 @@ Measures the area of the stream channel using provided shapefiles.
 ![Channel Area Measurement](https://github.com/benrsellers/SfMStreamMonitoringToolkit/blob/main/img/AreaCalculation.png)
 
 ---
-### 2. **Calulate Stream Gradient **
+### 2. **Calulate Stream Gradient**
 Calculates the elevation difference between upstream and downstream points divided by the centerline length.
 
 **Visual Example:**
