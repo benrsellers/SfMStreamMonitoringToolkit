@@ -8,6 +8,45 @@ The **Stream Monitoring Toolkit** is a set of tools designed to calculate stream
 - Calculate stream gradient, channel area, sinuosity index, and more.
 - Outputs results in a structured CSV file for easy integration with other workflows.
 
+### 1. **Stream Gradient Calculation**
+Calculates the elevation difference between upstream and downstream points divided by the centerline length.
+
+**Visual Example:**
+![Stream Gradient Calculation]("img/GradientCalculation.png")
+
+---
+
+### 2. **Channel Area Measurement**
+Measures the area of the stream channel using provided shapefiles.
+
+**Visual Example:**
+![Channel Area Measurement](path/to/channel_area_example.png)
+
+---
+
+### 3. **Sinuosity Index**
+Calculates the sinuosity index, which is the ratio of the centerline length to the straight-line distance between upstream and downstream points.
+
+**Visual Example:**
+![Sinuosity Index Calculation](path/to/sinuosity_index_example.png)
+
+---
+
+### 4. **Straight-Line Distance**
+Determines the shortest distance between upstream and downstream points using their coordinates.
+
+**Visual Example:**
+![Straight-Line Distance](path/to/straightline_distance_example.png)
+
+---
+
+### 5. **Composite Output**
+Generates a CSV summarizing all calculated metrics, making it easy to analyze and compare different sites.
+
+**Visual Example:**
+![Composite Output](path/to/csv_output_example.png)
+
+---
 ---
 
 ## Requirements
